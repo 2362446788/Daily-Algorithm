@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>螺旋矩阵模拟器 (m × n) - 最终修复版</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .controls {
+        margin-bottom: 15px;
+      }
+      input {
+        width: 60px;
+      }
+      button {
+        margin-left: 10px;
+        padding: 5px 15px;
+      }
+      table {
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      td {
+        border: 1px solid #aaa;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 20px;
+      }
+      td.highlight {
+        background-color: #ffeb3b;
+        font-weight: bold;
+      }
+      #info {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+      }
+      #log {
+        margin-top: 10px;
+        max-height: 200px;
+        overflow-y: auto;
+        background: #f7f7f7;
+        padding: 10px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>螺旋矩阵填充模拟 (m × n) —— 左闭右开</h2>
+    <div class="controls">
+      <label>行数 m: <input id="rows" type="number" value="4" /></label>
+      <label>列数 n: <input id="cols" type="number" value="3" /></label>
+      <button onclick="initMatrix()">初始化 / 重置</button>
+      <button onclick="nextStep()">下一步 ▶</button>
+      <button onclick="autoRun()">自动运行</button>
+    </div>
+    <div id="info">等待开始...</div>
+    <div id="matrix-container"></div>
+    <div id="log"></div>
+
+    <script>
+      let m, n, matrix;
+      let startX, startY, offset, loop, row, col, count;
+      let stage = "init";
+      let logMessages = [];
+      let remainDirection = "";
+      let remainRow, remainCol;
+
+      function log(msg) {
+        logMessages.push(msg);
+        document.getElementById("log").innerHTML = logMessages
+          .map((m) => `<div>${m}</div>`)
+          .join("");
+        document.getElementById("log").scrollTop =
+          document.getElementById("log").scrollHeight;
+      }
+
+      function initMatrix() {
+        m = parseInt(document.getElementById("rows").value);
+        n = parseInt(document.getElementById("cols").value);
+        matrix = Array.from({ length: m }, () => new Array(n).fill(0));
+        startX = 0;
+        startY = 0;
+        loop = Math.min(m, n) >> 1;
+        offset = 1;
+        row = startX;
+        col = startY;
+        count = 1;
+        logMessages = [];
+        remainDirection = "";
+        document.getElementById("info").textContent = "初始化完成，准备开始。";
+        document.getElementById("log").innerHTML = "";
+        renderMatrix();
+
+        if (loop > 0) {
+          stage = "up";
+          log(`矩阵初始化：${m} 行 × ${n} 列，圈数 loop = ${loop}`);
+        } else {
+          // 无完整圈，直接进入剩余判断
+          if (Math.min(m, n) % 2 === 1) {
+            if (m > n) {
+              remainDirection = "col";
+              remainRow = startX;
+              remainCol = startY;
+              stage = "remain";
+              log(`无完整圈，剩余一列，从 [${startX}][${startY}] 开始向下填充`);
+            } else if (n > m) {
+              remainDirection = "row";
+              remainRow = startX;
+              remainCol = startY;
+              stage = "remain";
+              log(`无完整圈，剩余一行，从 [${startX}][${startY}] 开始向右填充`);
+            } else {
+              remainDirection = "center";
+              stage = "remain";
+              log(`只有一个中心点 [${startX}][${startY}]`);
+            }
+          } else {
+            stage = "done";
+            log("无剩余，填充完成！");
+            document.getElementById("info").textContent = "填充完成！";
+          }
+        }
+      }
+
+      function renderMatrix(highlightRow = -1, highlightCol = -1) {
+        const container = document.getElementById("matrix-container");
+        let html = "<table>";
+        for (let i = 0; i < m; i++) {
+          html += "<tr>";
+          for (let j = 0; j < n; j++) {
+            const val = matrix[i][j] === 0 ? "" : matrix[i][j];
+            const cls =
+              i === highlightRow && j === highlightCol ? "highlight" : "";
+            html += `<td class="${cls}">${val}</td>`;
+          }
+          html += "</tr>";
+        }
+        html += "</table>";
+        container.innerHTML = html;
+      }
+
+      function nextStep() {
+        if (stage === "done") {
+          document.getElementById("info").textContent = "填充完成！";
+          return;
+        }
+
+        switch (stage) {
+          case "up":
+            if (col < n - offset) {
+              matrix[row][col] = count++;
+              renderMatrix(row, col);
+              log(`上行填充 [${row}][${col}] = ${matrix[row][col]}`);
+              col++;
+            } else {
+              // 上行结束，切换到右列
+              stage = "right";
+              row = startX; // ✅ 包含右上角
+              // col 已经是 n - offset，不变
+              log("上行完成，切换到右列");
+              nextStep();
+            }
+            break;
+
+          case "right":
+            if (row < m - offset) {
+              matrix[row][col] = count++;
+              renderMatrix(row, col);
+              log(`右列填充 [${row}][${col}] = ${matrix[row][col]}`);
+              row++;
+            } else {
+              // 右列结束，切换到下行
+              stage = "down";
+              // row 已经是 m - offset，不变
+              // col 已经是 n - offset，不变（包含右下角）
+              log("右列完成，切换到下行");
+              nextStep();
+            }
+            break;
+
+          case "down":
+            if (col > startY) {
+              matrix[row][col] = count++;
+              renderMatrix(row, col);
+              log(`下行填充 [${row}][${col}] = ${matrix[row][col]}`);
+              col--;
+            } else {
+              // 下行结束，切换到左列
+              stage = "left";
+              // row 已经是 m - offset，不变（包含左下角）
+              // col 已经是 startY，不变
+              log("下行完成，切换到左列");
+              nextStep();
+            }
+            break;
+
+          case "left":
+            if (row > startX) {
+              matrix[row][col] = count++;
+              renderMatrix(row, col);
+              log(`左列填充 [${row}][${col}] = ${matrix[row][col]}`);
+              row--;
+            } else {
+              // 一圈完成
+              startX++;
+              startY++;
+              offset++;
+              loop--;
+              log(
+                `一圈完成，startX=${startX}, startY=${startY}, offset=${offset}, 剩余圈数=${loop}`,
+              );
+              if (loop > 0) {
+                row = startX;
+                col = startY;
+                stage = "up";
+              } else {
+                stage = "decideRemain";
+              }
+              nextStep();
+            }
+            break;
+
+          case "decideRemain":
+            if (Math.min(m, n) % 2 === 1) {
+              if (m > n) {
+                remainDirection = "col";
+                remainRow = startX;
+                remainCol = startY;
+                stage = "remain";
+                log(`剩余一列，从 [${startX}][${startY}] 开始向下填充`);
+              } else if (n > m) {
+                remainDirection = "row";
+                remainRow = startX;
+                remainCol = startY;
+                stage = "remain";
+                log(`剩余一行，从 [${startX}][${startY}] 开始向右填充`);
+              } else {
+                remainDirection = "center";
+                stage = "remain";
+                log(`剩余一个中心点 [${startX}][${startY}]`);
+              }
+            } else {
+              stage = "done";
+              log("没有剩余，填充完成！");
+              document.getElementById("info").textContent = "填充完成！";
+            }
+            nextStep();
+            break;
+
+          case "remain":
+            if (remainDirection === "col") {
+              if (remainRow <= m - offset) {
+                matrix[remainRow][remainCol] = count++;
+                renderMatrix(remainRow, remainCol);
+                log(
+                  `剩余列填充 [${remainRow}][${remainCol}] = ${matrix[remainRow][remainCol]}`,
+                );
+                remainRow++;
+              } else {
+                stage = "done";
+                log("剩余列填充完成！");
+                document.getElementById("info").textContent = "填充完成！";
+              }
+            } else if (remainDirection === "row") {
+              if (remainCol <= n - offset) {
+                matrix[remainRow][remainCol] = count++;
+                renderMatrix(remainRow, remainCol);
+                log(
+                  `剩余行填充 [${remainRow}][${remainCol}] = ${matrix[remainRow][remainCol]}`,
+                );
+                remainCol++;
+              } else {
+                stage = "done";
+                log("剩余行填充完成！");
+                document.getElementById("info").textContent = "填充完成！";
+              }
+            } else if (remainDirection === "center") {
+              matrix[startX][startY] = count++;
+              renderMatrix(startX, startY);
+              log(
+                `中心点填充 [${startX}][${startY}] = ${matrix[startX][startY]}`,
+              );
+              stage = "done";
+              document.getElementById("info").textContent = "填充完成！";
+            }
+            break;
+        }
+
+        if (stage !== "done") {
+          document.getElementById("info").textContent =
+            `阶段：${getStageName()}, count = ${count}`;
+        }
+      }
+
+      function getStageName() {
+        switch (stage) {
+          case "up":
+            return "上行 (左→右)";
+          case "right":
+            return "右列 (上→下)";
+          case "down":
+            return "下行 (右→左)";
+          case "left":
+            return "左列 (下→上)";
+          case "remain":
+            return "填充剩余部分";
+          default:
+            return "完成";
+        }
+      }
+
+      function autoRun() {
+        const interval = setInterval(() => {
+          if (stage === "done") {
+            clearInterval(interval);
+            return;
+          }
+          nextStep();
+        }, 300);
+      }
+
+      window.onload = () => {
+        initMatrix();
+      };
+    </script>
+  </body>
+</html>
