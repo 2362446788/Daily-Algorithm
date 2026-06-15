@@ -2,12 +2,15 @@
 
 ## 题目列表
 
-1. 707. 设计链表
-   - LeetCode: https://leetcode.cn/problems/design-linked-list/
-   - 代码随想录: https://programmercarl.com/0707.%E8%AE%BE%E8%AE%A1%E9%93%BE%E8%A1%A8.html
-2. 21. 合并两个有序链表
-   - LeetCode: https://leetcode.cn/problems/merge-two-sorted-lists/
-   - 代码随想录: https://programmercarl.com/0021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8.html
-3. 23. 合并 K 个升序链表
-   - LeetCode: https://leetcode.cn/problems/merge-k-sorted-lists/
-   - 代码随想录: https://programmercarl.com/0023.%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8.html
+1. 77. 组合
+   - LeetCode: https://leetcode.cn/problems/combinations/
+   - 代码随想录: https://programmercarl.com/0077.%E7%BB%84%E5%90%88.html
+2. 46. 全排列
+   - LeetCode: https://leetcode.cn/problems/permutations/
+   - 代码随想录: https://programmercarl.com/0046.%E5%85%A8%E6%8E%92%E5%88%97.html
+3. 78. 子集
+   - LeetCode: https://leetcode.cn/problems/subsets/
+   - 代码随想录: https://programmercarl.com/0078.%E5%AD%90%E9%9B%86.html
+4. 39. 组合总和
+   - LeetCode: https://leetcode.cn/problems/combination-sum/
+   - 代码随想录: https://programmercarl.com/0039.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C.html

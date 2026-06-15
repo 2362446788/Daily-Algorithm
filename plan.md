@@ -106,7 +106,7 @@
 ### Day 9｜哈希表补强
 1. [202. 快乐数](https://programmercarl.com/0202.%E5%BF%AB%E4%B9%90%E6%95%B0.html) `E`
 2. [383. 赎金信](https://programmercarl.com/0383.%E8%B5%8E%E9%87%91%E4%BF%A1.html) `E`
-3. [49. 字母异位词分组](https://programmercarl.com/0049.%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84.html) `M`
+3. [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams/) `M`
 4. [18. 四数之和](https://programmercarl.com/0018.%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C.html) `M`
 
 ### Day 10｜字符串主线
@@ -118,8 +118,8 @@
 ### Day 11｜双指针 + 滑动窗口
 1. [26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/) `E`
 2. [283. 移动零](https://leetcode.cn/problems/move-zeroes/) `E`
-3. [3. 无重复字符的最长子串](https://programmercarl.com/0003.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.html) `M`
-4. [438. 找到字符串中所有字母异位词](https://programmercarl.com/0438.%E6%89%BE%E5%88%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%89%80%E6%9C%89%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D.html) `M`
+3. [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) `M`
+4. [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) `M`
 - 可选替换：
   - [239. 滑动窗口最大值](https://programmercarl.com/0239.%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9C%80%E5%A4%A7%E5%80%BC.html) `H`
 
@@ -217,7 +217,7 @@
 
 ### Day 25｜冲刺高频题
 1. [206. 反转链表（二刷）](https://programmercarl.com/0206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8.html) `E`
-2. [3. 无重复字符的最长子串（二刷）](https://programmercarl.com/0003.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.html) `M`
+2. [3. 无重复字符的最长子串（二刷）](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) `M`
 3. [102. 二叉树的层序遍历（二刷）](https://programmercarl.com/0102.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.html) `M`
 4. [198. 打家劫舍（二刷）](https://programmercarl.com/0198.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D.html) `M`
 - 可选替换：
