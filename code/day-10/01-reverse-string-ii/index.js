@@ -12,8 +12,10 @@ var reverseStr = function (s, k) {
     // 那么就使用双指针来反转
     let left = i;
     // 为什么是 i + k - 1 呢？
-    // ['a', 'b', 'c'], i = 0, k = 3，此时要反转这三个，如果直接使用 i + k = 3，超过数组下标了，越界了，执行结果就不正确，因此需要判断是否越界，越界了 就需要只能访问数组最后一项
-    let right = i + k - 1 > arr.length ? arr.length : i + k - 1;
+    // ['a', 'b', 'c'], i = 0, k = 3，此时要反转这三个，如果直接使用 i + k = 3，超过数组下标了，越界了，执行结果就不正确，因此需要判断是否越界，越界了就需要只能访问数组最后一项
+    // 需要反转的最后一个字符的下标
+    let lastIndex = i + k - 1;
+    let right = lastIndex > arr.length - 1 ? arr.length - 1 : lastIndex;
     // 使用双指针移动交换位置进行反转
     while (left < right) {
       let temp = arr[left];
