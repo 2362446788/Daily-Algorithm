@@ -3,9 +3,40 @@
 // 时间复杂度：TODO
 // 空间复杂度：TODO
 /**
- * @param {...any} args
- * @return {any}
+ * @param {string} s
+ * @return {string}
  */
-var solution = function(...args) {
+var removeDuplicates = function (s) {
+  // 直接使用栈来处理
+  let stack = [];
+  // 遍历字符串
+  for (let item of s) {
+    // 如果栈的末尾就存在相同的值，把栈中的值弹出，继续下一次循环
+    if (item === stack[stack.length - 1]) {
+      stack.pop();
+    } else {
+      // 不存在的话就加入到栈中
+      stack.push(item);
+    }
+  }
+  return stack.join("");
 
+  // 双指针来处理
+  // let arr = s.split('');
+  // let slow = 0;
+  // let fast = 0;
+  // // 慢指针的值就是新数组
+  // while (fast < arr.length) {
+  //     // 先把 fast 的值赋值给 slow
+  //     arr[slow] = arr[fast]
+  //     // 如果 slow 和前一个值相同，那么将索引减一，不会相同的值更新到 slow，并且下一次循环还会把前一个值也更新成 fast 的最新值
+  //     if (slow > 0 && arr[slow] === arr[slow - 1]) {
+  //         slow--;
+  //     } else {
+  //         slow++;
+  //     }
+  //     fast++;
+  // }
+  // // 最后截取对应长度的数组然后构造成字符串输出
+  // return arr.slice(0, slow).join('');
 };

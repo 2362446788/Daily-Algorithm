@@ -3,9 +3,37 @@
 // 时间复杂度：TODO
 // 空间复杂度：TODO
 /**
- * @param {...any} args
- * @return {any}
+ * @param {string[]} tokens
+ * @return {number}
  */
-var solution = function(...args) {
-
+var evalRPN = function (tokens) {
+  const stack = [];
+  for (let i = 0; i < tokens.length; i++) {
+    if (
+      tokens[i] === "+" ||
+      tokens[i] === "-" ||
+      tokens[i] === "*" ||
+      tokens[i] === "/"
+    ) {
+      // 取出前两个数据来计算
+      // 计算一定是 right ? left
+      const left = Number(stack.pop());
+      const right = Number(stack.pop());
+      if (tokens[i] === "+") {
+        stack.push(right + left);
+      }
+      if (tokens[i] === "-") {
+        stack.push(right - left);
+      }
+      if (tokens[i] === "*") {
+        stack.push(right * left);
+      }
+      if (tokens[i] === "/") {
+        stack.push((right / left) | 0);
+      }
+    } else {
+      stack.push(Number(tokens[i]));
+    }
+  }
+  return stack.pop();
 };
