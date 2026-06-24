@@ -9,6 +9,7 @@
   - `3 Easy + 1 Medium`
   - 或 `2 Easy + 2 Medium`
   - 某些专题会出现 `3 Medium` 或 `4 Medium`
+  - `Day 13` 为二叉树递归基础日，调整为 `7` 题
 - `Hard` 题只作为**可选替换题**，不算必做
 - 每周日固定为**复习日**
 
@@ -21,13 +22,13 @@
 
 - 已完成：`Day 1 ~ Day 7`
 - 已完成新题：`18` 题
-- 后续新题：`16` 个新题日 × `4` 题 = `64` 题
-- 全计划必做新题总量：`82` 题
+- 后续新题：常规 `15` 个新题日 × `4` 题 + `Day 13` 的 `7` 题 = `67` 题
+- 全计划必做新题总量：`85` 题
 - 复习日：`Day 7 / Day 14 / Day 21 / Day 26`
 - 总周期：`26` 天
 
 说明：
-- `82` 题属于“前端面试更稳版”，不是最极限压缩版
+- `85` 题属于“前端面试更稳版”，不是最极限压缩版
 - 如果后面时间突然变紧，可以优先保住每个模块里的前两天
 - 文中的 `Hard` 题为可选，不计入必做题量
 
@@ -36,7 +37,7 @@
 1. 先看 Carl 对应题解 10 到 15 分钟，只看思路、边界、模板。
 2. 每题卡住 15 分钟还没有核心思路，就切题解，不死磕。
 3. 每天刷完后固定做 10 分钟复盘：
-   - 口述今天 4 题的核心思路
+   - 口述今天题目的核心思路
    - 记录 1 个最容易忘的边界
    - 记录 1 个模板关键词
 
@@ -130,18 +131,21 @@
 4. [150. 逆波兰表达式求值](https://programmercarl.com/0150.%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC.html) `M`
 
 ### Day 13｜二叉树入门
-1. [104. 二叉树的最大深度](https://programmercarl.com/0104.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6.html) `E`
-2. [226. 翻转二叉树](https://programmercarl.com/0226.%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91.html) `E`
-3. [101. 对称二叉树](https://programmercarl.com/0101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91.html) `E`
-4. [102. 二叉树的层序遍历](https://programmercarl.com/0102.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.html) `M`
+1. [144. 二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/) `E`
+2. [94. 二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/) `E`
+3. [145. 二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal/) `E`
+4. [104. 二叉树的最大深度](https://programmercarl.com/0104.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6.html) `E`
+5. [226. 翻转二叉树](https://programmercarl.com/0226.%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91.html) `E`
+6. [101. 对称二叉树](https://programmercarl.com/0101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91.html) `E`
+7. [102. 二叉树的层序遍历](https://programmercarl.com/0102.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.html) `M`
 
 ### Day 14｜复习日
 - 不刷新题
 - 复习 Day 8 ~ Day 13
 - 必做：
   - 手写一遍滑动窗口模板
-  - 手写一遍层序遍历模板
-  - 口述 `最长无重复子串 / 合并区间 / 层序遍历` 思路
+  - 手写一遍二叉树递归遍历模板
+  - 口述 `最长无重复子串 / 合并区间 / 前中后序遍历` 思路
 
 ---
 
