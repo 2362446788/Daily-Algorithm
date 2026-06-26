@@ -3,9 +3,26 @@
 // 时间复杂度：TODO
 // 空间复杂度：TODO
 /**
- * @param {...any} args
- * @return {any}
+ * @param {TreeNode} root
+ * @return {number}
  */
-var solution = function(...args) {
-
+var maxDepth = function (root) {
+  // 递归法，详细写法
+  // 1. 确定函数入参和返回值
+  function getDepth(root) {
+    // 2. 确定递归出口
+    if (root === null) {
+      return 0;
+    }
+    // 3. 确定单层递归的逻辑
+    const leftDepth = getDepth(root.left);
+    const rightDepth = getDepth(root.right);
+    return 1 + Math.max(leftDepth, rightDepth);
+  }
+  return getDepth(root);
+  // 递归法：简洁写法
+  // if (root === null) {
+  //     return 0;
+  // }
+  // return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
