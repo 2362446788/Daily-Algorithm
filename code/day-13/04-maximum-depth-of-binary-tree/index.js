@@ -26,3 +26,27 @@ var maxDepth = function (root) {
   // }
   // return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
+
+// 按照层序遍历的模版来实现
+// 每一次遍历都把 depth 加 1
+var maxDepth1 = function (root) {
+  if (root === null) {
+    return 0;
+  }
+  let queue = [root];
+  let depth = 0;
+  while (queue.length) {
+    let length = queue.length;
+    depth++;
+    for (let i = 0; i < length; i++) {
+      let item = queue.shift();
+      if (item.left) {
+        queue.push(item.left);
+      }
+      if (item.right) {
+        queue.push(item.right);
+      }
+    }
+  }
+  return depth;
+};
