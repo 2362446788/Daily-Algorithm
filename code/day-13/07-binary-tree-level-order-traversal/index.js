@@ -22,15 +22,13 @@ var levelOrder = function (root) {
     // 存放弹出的节点
     let value = [];
     // 记录需要弹出多少个元素
-    // 不能直接 while (queue.length)，因为队列的数据一直在变化
+    // 不能直接 i < queue.length，因为队列的数据一直在变化
     let num = queue.length;
-    while (num) {
+    for (let i = 0; i < num; i++) {
       // 把队列队头数据弹出
       let item = queue.shift();
       // 加入结果中
       value.push(item.val);
-      // 将 num 减一
-      num--;
       // 把左右子树加入队列中
       if (item.left) {
         queue.push(item.left);
