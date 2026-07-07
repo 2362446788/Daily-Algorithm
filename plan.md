@@ -174,12 +174,16 @@
 2. [46. 全排列](https://programmercarl.com/0046.%E5%85%A8%E6%8E%92%E5%88%97.html) `M`
 3. [78. 子集](https://programmercarl.com/0078.%E5%AD%90%E9%9B%86.html) `M`
 4. [39. 组合总和](https://programmercarl.com/0039.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C.html) `M`
+5. [39. 组合总和II](https://programmercarl.com/0040.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8CII.html) `M`
+6. [39. 组合总和III](https://programmercarl.com/0216.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8CIII.html) `M`
 
 ### Day 19｜贪心高频
 1. [455. 分发饼干](https://programmercarl.com/0455.%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2.html) `E`
 2. [53. 最大子数组和](https://programmercarl.com/0053.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C.html) `M`
 3. [55. 跳跃游戏](https://programmercarl.com/0055.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F.html) `M`
 4. [45. 跳跃游戏 II](https://programmercarl.com/0045.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8FII.html) `M`
+5. [435. 无重叠区间](https://programmercarl.com/0435.%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4.html) `M`
+5. [56. 合并区间](https://programmercarl.com/0056.%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4.html) `M`
 
 ### Day 20｜DP 基础
 1. [509. 斐波那契数](https://programmercarl.com/0509.%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0.html) `E`
