@@ -3,9 +3,37 @@
 // 时间复杂度：TODO
 // 空间复杂度：TODO
 /**
- * @param {...any} args
- * @return {any}
+ * @param {number} n
+ * @return {number}
  */
-var solution = function(...args) {
+// 动态规划
+var fib = function (n) {
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+  // 1. dp数组及下标的定义：dp[i] 就是第 i 个斐波那契数的值
+  // 2. 递推公式：dp[i] = dp[i - 1] + dp[i - 2]
+  // 3. 初始化dp数组：dp[0] = 0，dp[1] = 1
+  // 4. 遍历顺序：从左往右，从 i = 2 开始
+  let dp = [];
+  dp[0] = 0;
+  dp[1] = 1;
+  for (let i = 2; i <= n; i++) {
+    dp[i] = dp[i - 1] + dp[i - 2];
+  }
+  return dp[n];
+};
 
+// 递归版本
+var fib1 = function (n) {
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+  return fib(n - 2) + fib(n - 1);
 };
